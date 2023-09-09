@@ -1,0 +1,19 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url = env("POSTGRES_PRISMA_URL") // uses connection pooling
+  directUrl = env("POSTGRES_URL_NON_POOLING") // uses a direct connection
+}
+
+model Task {
+  id Int @id @default(autoincrement())//? id: tipo Integer @id para que se unico y por defecto un autoincrement
+  title String //? title: de tipo String
+  description String? //? description: de tipo String? el ? indica que no es obligatorio
+  createdAt DateTime @default(now()) //? createdAt: añade por defecto la fecha en la que se ah guardado
+}
