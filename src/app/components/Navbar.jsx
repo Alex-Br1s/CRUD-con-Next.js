@@ -1,24 +1,12 @@
+'use client'
 import React from "react";
-import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 const Navbar = () => {
+  const router = useRouter()
   return (
-    <nav className="bg-slate-900 flex justify-between px-6 items-center h-20">
-      <Link href="/">
-        <h3 className="font-bold text-3xl">NextCRUD</h3>
-      </Link>
-      <ul className="flex gap-5 text-lg font-bold">
-        <li>
-          <Link href="/new" className="text-slate-200 hover:text-slate-400">
-            New
-          </Link>
-        </li>
-        <li>
-          <Link href="/about" className="text-slate-200 hover:text-slate-400">
-            About
-          </Link>
-        </li>
-      </ul>
+    <nav  className='bg-celeste h-24 flex items-center'>
+      <h1 onClick={() => router.push('/')}  className='text-3xl text-slate-500 font-semibold ml-5 cursor-pointer transition ease-in duration-75 hover:text-xl-custom'>My-Tasks</h1>
     </nav>
   );
 };
